@@ -11,8 +11,8 @@ def get_data(input_path):
 
 	visualise = False
 
-	data_paths = [os.path.join(input_path,s) for s in ['VOC2007', 'VOC2012']]
-	
+	# data_paths = [os.path.join(input_path,s) for s in ['VOC2007', 'VOC2012']]
+	data_paths = [input_path]
 
 	print('Parsing annotation files')
 
@@ -53,7 +53,7 @@ def get_data(input_path):
 				element = et.getroot()
 
 				element_objs = element.findall('object')
-				element_filename = element.find('filename').text
+				element_filename = element.find('filename').text + ".jpg"
 				element_width = int(element.find('size').find('width').text)
 				element_height = int(element.find('size').find('height').text)
 
